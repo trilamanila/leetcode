@@ -1,4 +1,4 @@
-//Day 3
+//Day 3 1/3/2022
 
 /*
 Search insert position
