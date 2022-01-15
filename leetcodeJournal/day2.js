@@ -50,6 +50,35 @@ var isValid = function(s) {
   }
   return leftSymbols.length === 0;
 };
+//////////////////////////////////////////////////////////////////////////////////////
+var isValid = function(s) {
+  //Stack to store left symbols
+  const leftSymbols = [];
+  //Loop for each character of the string
+  for(let i = 0; i < s.length; i++) {
+    //If left symbol is encountered
+    if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+      leftSymbols.push(s[i]);
+    }
+    //If right symbol is encountered
+    else if (
+      s[i] === ")" &&
+      leftSymbols.length !== 0 &&
+      leftSymbols[leftSymbols.length -1] === "("
+    ) {
+      leftSymbols.pop();
+    } else if (
+      s[i] === "}" &&
+      leftSymbols.length !== 0 &&
+      leftSymbols[leftSymbols.length - 1] === "{"
+    ) {
+      leftSymbols.pop();
+    } else if (
+      s[i] === "]" &&
+      leftSymbols
+    )
+  }
+}
 
 /*Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
 

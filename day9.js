@@ -18,7 +18,7 @@ var invertTree = function(root) {
   let temp = new TreeNode();
   temp = root.right;
   root.right = root.left;
-  root.left = tmp;
+  root.left = temp;
 
   root.left = invertTree(root.left);
   root.right = invertTree(root.right);

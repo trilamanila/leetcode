@@ -15,6 +15,18 @@ var buildArray = function(nums) {
   return ans;
 };
 
+//////////////////////////////////////////////////////////////////////////////////////
+
+var buildArray = functions(nums) {
+  let ans = [];
+  for (let i = 0; i < nums.length; i++){
+    ans.push(nums[nums[i]]);
+  }
+
+  return ans;
+};
+
+
 /*
 TWO SUM
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -36,6 +48,27 @@ var twoSum = function(nums, target) {
   index_map = new Map();
   // Loop for each element in the array
   for (let i = 0; i < nums.length; i++) {
+    let difference = target - nums[i];
+    if (index_map.has(difference)) {
+      result[0] = i;
+      result[1] = index_map.get(difference);
+      break;
+    } else {
+      index_map.set(nums[i], i);
+    }
+  }
+  return result;
+};
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+var twoSum = function(nums, target) {
+  //Array to store the result
+  result= [];
+  //Map to store the difference and its index
+  index_map = new Map();
+  //Loop for each element in the array
+  for (let i = 0; i <nums.length; i++) {
     let difference = target - nums[i];
     if (index_map.has(difference)) {
       result[0] = i;
