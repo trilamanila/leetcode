@@ -35,18 +35,18 @@ Thus, the result should be [1,0].
 */
 
 var plusOne = function(digits) {
-    var i = digits.length - 1;
-    var val = 0;
-    var carry = 1;
-    while (i >= 0 && carry) {
-        val = digits[i] + carry;
-        carry = Math.floor(val / 10);
-        digits[i] = val % 10;
-        i--;
-    }
-    if (carry) digits.unshift(carry);
-    return digits;
-}
+  var i = digits.length - 1;
+  var val = 0;
+  var carry = 1;
+  while (i >= 0 && carry) {
+    val = digits[i] + carry;
+    carry = Math.floor(val / 10);
+    digits[i] = val % 10;
+    i--;
+  }
+  if (carry) digits.unshift(carry);
+  return digits;
+};
 
 /*
 Diagonal Traverse
@@ -67,25 +67,25 @@ Output: [1,2,3,4]
 */
 
 var findDiagonalOrder = function(matrix) {
-    conts rows = matrix.length;
-    if(rows === 0)return [];
+  const rows = matrix.length;
+  if (rows === 0) return [];
 
-    const cols = matrix[0].length 
-    const diagonals = new Array(row + cols - 1).fill(0).map(_ => [])
+  const cols = matrix[0].length;
+  const diagonals = new Array(rows + cols - 1).fill(0).map(_ => []);
 
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-            const key = i + j
-            const num = matrix[i][j]
-            if (key % 2 === 0) {
-                diagonals[key].unshift(num)
-            } else {
-                diagonals[key].push(num)
-            }
-        }
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const key = i + j;
+      const num = matrix[i][j];
+      if (key % 2 === 0) {
+        diagonals[key].unshift(num);
+      } else {
+        diagonals[key].push(num);
+      }
     }
-    return diagonals.reduce((result, arr) => {
-        result.push(...arr)
-        reutrn result
-    }, [])
+  }
+  return diagonals.reduce((result, arr) => {
+    result.push(...arr);
+    return result;
+  }, []);
 };
